@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/drawable/gradient_background.xml" value="0.3665" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/activity_bill_detail.xml" value="0.33" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/activity_entry.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/activity_list_of_bill.xml" value="0.25" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/activity_login.xml" value="0.3625" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/activity_pay.xml" value="0.2259963768115942" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/activity_register.xml" value="0.3625" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/activity_staff_login.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/activity_staff_main.xml" value="0.33" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/activity_staff_register.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/background_color.xml" value="0.365625" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/bill_detay.xml" value="0.4455569461827284" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/bill_list.xml" value="0.25" />
+        <entry key="..\:/Users/mTd/Desktop/fatura/app/src/main/res/layout/billlist.xml" value="0.18802083333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
