@@ -28,6 +28,7 @@
         android:text="Month Bill Detail"
         android:textColor="@color/black"
         android:textSize="25dp"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.304"
         app:layout_constraintStart_toEndOf="@+id/textMonth"
@@ -55,6 +56,7 @@
         android:text="Total Amount"
         android:textColor="@color/black"
         android:textSize="20dp"
+        android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textMonth"
         tools:ignore="MissingConstraints" />
@@ -81,6 +83,7 @@
         android:text="Unit Price"
         android:textColor="@color/black"
         android:textSize="20dp"
+        android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15"
         tools:ignore="MissingConstraints" />
@@ -93,6 +96,7 @@
         android:text="Total Bill Debt "
         android:textColor="@color/black"
         android:textSize="25dp"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17"
@@ -103,27 +107,30 @@
         android:id="@+id/btnPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="136dp"
         android:backgroundTint="#7CA150"
         android:text="Pay Debt"
+        android:typeface="serif"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textDebt"
-        android:layout_width="116dp"
-        android:layout_height="34dp"
+        android:layout_width="85dp"
+        android:layout_height="40dp"
         android:hint="debt"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/btnPay"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19"
-        app:layout_constraintVertical_bias="0.408"
+        app:layout_constraintVertical_bias="0.51"
         tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

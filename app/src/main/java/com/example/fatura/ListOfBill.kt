@@ -1,4 +1,4 @@
-package com.example.pay_bill
+package com.example.fatura
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,6 @@ import android.widget.AdapterView.OnItemClickListener
 import java.util.HashMap;
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.android.volley.AuthFailureError
-import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -22,22 +20,31 @@ class ListOfBill : AppCompatActivity() {
     private lateinit var billList: MutableList<Bills>
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityListOfBillBinding.inflate(layoutInflater)
-        setContentView(binding.getRoot())
+        if (SharedPrefManager.getInstance(this).isLoggedIn) {
 
-        //getting the recyclerview from xml
-        //initializing the productlist
-        billList = ArrayList<Bills>()
-        //this method will fetch and parse json
-        //to display it in recyclerview
-        val user = SharedPrefManager.getInstance(this).user
+            super.onCreate(savedInstanceState)
+            binding = ActivityListOfBillBinding.inflate(layoutInflater)
+            setContentView(binding.getRoot())
 
-        listBills(Integer.toString(user.tc))
+            //getting the recyclerview from xml
+            //initializing the productlist
+            billList = ArrayList<Bills>()
+            //this method will fetch and parse json
+            //to display it in recyclerview
+
+            val user = SharedPrefManager.getInstance(this).user
+            listBills(user.tc.toString())
+
+        }
+        else {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
     }
 
-     fun listBills(billstc:String) {
+     fun listBills(Tc:String?) {
 
         /*
         * Creating a String Request
@@ -46,8 +53,13 @@ class ListOfBill : AppCompatActivity() {
         * Then we have a Response Listener and a Error Listener
         * In response listener we will get the JSON response as a String
         * */
+
+         //this is the JSON Data URL
+         //make sure you are using the correct ip else it will not work
+
+         val url= "http://192.168.148.87:8080/fatura/billoflist.php"
         val stringRequest = object :StringRequest(
-            Method.GET, URL_LIST_OF_BILLS,
+            Method.POST, url,
             { response ->
                 try {
                     //converting the string to json array object
@@ -56,13 +68,14 @@ class ListOfBill : AppCompatActivity() {
                     //traversing through all the object
                     for (i in 0 until array.length()) {
        //getting product object from json array
+
                         val bill = array.getJSONObject(i)
 
                         //adding the product to product list
                         billList.add(
                             Bills(
                                 bill.getString("id"),
-                                bill.getInt("Tc"),
+                                bill.getString("Tc"),
                                 bill.getInt("amount"),
                                 bill.getInt("unit"),
                                 bill.getInt("debt"),
@@ -84,9 +97,7 @@ class ListOfBill : AppCompatActivity() {
 
                         })
 
-
                     }
-
 
                 } catch (e: JSONException) {
                     e.printStackTrace()
@@ -95,20 +106,15 @@ class ListOfBill : AppCompatActivity() {
             Response.ErrorListener { error -> Toast.makeText(applicationContext, error.message, Toast.LENGTH_SHORT).show() }
         )
         {
-            @Throws(AuthFailureError::class)
-            override fun getParams(): Map<String, String> {
-                val params = HashMap<String, String>()
-                params["Tc"] = billstc
-                return params
+
+            override fun getParams(): HashMap<String, String> {
+                val map = HashMap<String, String>()
+                map["Tc"] = Tc!!
+                return map
             }
         }
 
         //adding our stringrequest to queue
         Volley.newRequestQueue(this).add(stringRequest)
-    }
-    companion object {
-        //this is the JSON Data URL
-        //make sure you are using the correct ip else it will not work
-        private const val URL_LIST_OF_BILLS = "http://192.168.148.125:8080/fatura/billoflist.php"
     }
 }

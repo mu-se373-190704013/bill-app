@@ -1,74 +1,75 @@
-package com.example.pay_bill
+package com.example.fatura
 
-import android.os.Bundle
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.example.assign6.VolleySingleton
-import com.example.fatura.R
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.HashMap
 
-class LoginActivity : AppCompatActivity() {
+class StaffLogin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_staff_login)
 
 
-        val btnLogin = findViewById<Button>(R.id.btnLogin)
-        val tvRegister = findViewById<TextView>(R.id.tvRegister)
+        val btnStaffLogin = findViewById<Button>(R.id.btnStaffLogin)
+        val tvStaffRegister = findViewById<TextView>(R.id.tvStaffRegister)
 
         //calling the method userLogin() for login the user
-        btnLogin.setOnClickListener(View.OnClickListener {
-            userLogin()
+        btnStaffLogin.setOnClickListener(View.OnClickListener {
+            staffLogin()
         })
-        val tvBack = findViewById<TextView>(R.id.tvBack)
-        tvBack.setOnClickListener(View.OnClickListener {
+
+        val mainPage = findViewById<TextView>(R.id.mainPage)
+        mainPage.setOnClickListener(View.OnClickListener {
             startActivity(Intent(applicationContext, Entry::class.java))
             finish()
         })
 
         //if user presses on textview it call the activity RegisterActivity
-        tvRegister.setOnClickListener(View.OnClickListener {
+        tvStaffRegister.setOnClickListener(View.OnClickListener {
             finish()
-            startActivity(Intent(applicationContext, RegisterActivity::class.java))
+            startActivity(Intent(applicationContext, StaffRegister::class.java))
         })
     }
 
-    private fun userLogin() {
+    private fun staffLogin() {
 
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
-        val etTc = findViewById<EditText>(R.id.etUserTc)
-        val etPassword = findViewById<EditText>(R.id.etUserPassword)
+        val etStaffTc = findViewById<EditText>(R.id.etStaffTc)
+        val etStaffPassword = findViewById<EditText>(R.id.etStaffPassword)
         //first getting the values
-        val tc = etTc.text.toString()
-        val password = etPassword.text.toString()
+        val tc = etStaffTc.text.toString()
+        val password = etStaffPassword.text.toString()
         //validating inputs
         if (TextUtils.isEmpty(tc)) {
-            etTc.error = "Please enter your tc"
-            etTc.requestFocus()
+            etStaffTc.error = "Please enter your tc"
+            etStaffTc.requestFocus()
             return
         }
 
         if (TextUtils.isEmpty(password)) {
-            etPassword.error = "Please enter your password"
-            etPassword.requestFocus()
+            etStaffPassword.error = "Please enter your password"
+            etStaffPassword.requestFocus()
             return
         }
 
-        val URLLogin = URLs.URL_LOGIN + "?tc="+tc+"&password="+password
+        val URLLogin = URLs.URL_STAFF_LOGIN + "?tc="+tc+"&password="+password
         println(URLLogin)
 
         //if everything is fine
-        val stringRequest = object : StringRequest(Request.Method.POST, URLLogin,
+        val stringRequest = object : StringRequest(
+            Request.Method.POST, URLLogin,
             Response.Listener { response ->
                 progressBar.visibility = View.GONE
 
@@ -94,7 +95,7 @@ class LoginActivity : AppCompatActivity() {
                         SharedPrefManager.getInstance(applicationContext).userLogin(user)
                         //starting the MainActivity
                         finish()
-                        startActivity(Intent(applicationContext, MainActivity::class.java))
+                        startActivity(Intent(applicationContext, StaffMain::class.java))
                     } else {
                         Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_SHORT).show()
                     }
@@ -102,11 +103,7 @@ class LoginActivity : AppCompatActivity() {
                     e.printStackTrace()
                 }
             },
-            Response.ErrorListener {
-                    error -> Toast.makeText(applicationContext, error.message, Toast.LENGTH_SHORT).show()
-            }
-        )
-        {
+            Response.ErrorListener { error -> Toast.makeText(applicationContext, error.message, Toast.LENGTH_SHORT).show() }) {
             @Throws(AuthFailureError::class)
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String, String>()

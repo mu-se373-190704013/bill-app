@@ -24,9 +24,9 @@
 
     <Button
         android:id="@+id/userrLogin"
-        android:layout_width="133dp"
-        android:layout_height="47dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="147dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="#7CA150"
         android:text="User Login"
         android:textColor="#FFFFFF"
@@ -36,14 +36,15 @@
 
     <Button
         android:id="@+id/staffLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="140dp"
+        android:layout_width="142dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="228dp"
         android:backgroundTint="#7CA150"
         android:text="Staff Login"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

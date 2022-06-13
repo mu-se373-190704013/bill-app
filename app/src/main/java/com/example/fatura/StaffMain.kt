@@ -1,7 +1,8 @@
-package com.example.pay_bill
+package com.example.fatura
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,6 @@ import com.android.volley.AuthFailureError
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.example.assign6.VolleySingleton
-import com.example.fatura.R
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -53,9 +53,31 @@ class StaffMain : AppCompatActivity(), View.OnClickListener {
         val debt = textViewDebt.text.toString().trim { it <= ' ' }
         val month = textViewMonth.text.toString().trim { it <= ' ' }
 
-
-
-
+        if (TextUtils.isEmpty(Tc)) {
+            textViewUserTc.error = "Please enter user tc"
+            textViewUserTc.requestFocus()
+            return
+        }
+        if (TextUtils.isEmpty(amount)) {
+            textViewUserAmount .error = "Please enter bill amount"
+            textViewUserAmount .requestFocus()
+            return
+        }
+        if (TextUtils.isEmpty(unit)) {
+            textViewUnit.error = "Please enter bill unit"
+            textViewUnit.requestFocus()
+            return
+        }
+        if (TextUtils.isEmpty(debt)) {
+            textViewDebt.error = "Please enter bill debt"
+            textViewDebt.requestFocus()
+            return
+        }
+        if (TextUtils.isEmpty(month)) {
+            textViewMonth.error = "Please enter bill month"
+            textViewMonth.requestFocus()
+            return
+        }
 
         val URLBILL = URLs.URL_BILL + "?Tc="+Tc+"&amount="+amount+"&unit="+unit+"&debt="+debt+"&month="+month
         println(URLBILL)
@@ -77,7 +99,7 @@ class StaffMain : AppCompatActivity(), View.OnClickListener {
                         //creating a new user object
                         val bill = Bills(
                             billJson.getString("id"),
-                            billJson.getInt("Tc"),
+                            billJson.getString("Tc"),
                             billJson.getInt("amount"),
                             billJson.getInt("unit"),
                             billJson.getInt("debt"),

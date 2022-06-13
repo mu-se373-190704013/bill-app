@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,6 +17,18 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory"
         tools:targetApi="p">
+        <activity
+            android:name=".StaffBill"
+            android:exported="false" />
+        <activity
+            android:name=".StaffEdit"
+            android:exported="false" />
+        <activity
+            android:name=".StaffPage"
+            android:exported="false" />
+        <activity
+            android:name=".Staff"
+            android:exported="false" />
         <activity
             android:name=".Pay"
             android:exported="false" />
@@ -46,7 +58,7 @@
             android:exported="false" />
         <activity
             android:name=".Entry"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

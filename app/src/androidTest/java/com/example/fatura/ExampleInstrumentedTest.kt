@@ -1,4 +1,4 @@
-package com.example.pay_bill
+package com.example.fatura
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

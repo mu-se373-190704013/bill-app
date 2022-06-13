@@ -1,4 +1,4 @@
-package com.example.pay_bill
+package com.example.fatura
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.example.fatura.R
 
 class BillsAdapter(var mCtx: Context,var billList: List<Bills>) :
                      ArrayAdapter<Bills>(mCtx, R.layout.bill_detay,billList)

@@ -1,4 +1,4 @@
-package com.example.pay_bill
+package com.example.fatura
 
 import android.content.Context
 import android.content.Intent
@@ -38,7 +38,7 @@ class SharedPrefManager private constructor(context: Context) {
             val sharedPreferences = ctx?.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
             return Bills(
                 sharedPreferences!!.getString(KEY_ID, null),
-                sharedPreferences.getInt(KEY_TCC, 0),
+                sharedPreferences.getString(KEY_TCC,null),
                 sharedPreferences.getInt(KEY_AMOUNT, 0),
                 sharedPreferences.getInt(KEY_UNIT, 0),
                 sharedPreferences.getInt(KEY_DEBT, 0),
@@ -77,7 +77,7 @@ class SharedPrefManager private constructor(context: Context) {
         val sharedPreferences = ctx?.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences?.edit()
         editor?.putString(KEY_ID, bill.id)
-        editor?.putInt(KEY_TCC, bill.Tc)
+        editor?.putString(KEY_TCC, bill.Tc)
         editor?.putInt(KEY_AMOUNT, bill.amount)
         editor?.putInt(KEY_UNIT, bill.unit)
         editor?.putInt(KEY_DEBT, bill.debt)

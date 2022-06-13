@@ -1,11 +1,10 @@
-package com.example.pay_bill
+package com.example.fatura
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fatura.R
 
 class Pay: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

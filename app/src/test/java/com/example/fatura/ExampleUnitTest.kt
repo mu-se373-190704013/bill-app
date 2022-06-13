@@ -1,4 +1,4 @@
-package com.example.pay_bill
+package com.example.fatura
 
 import org.junit.Test
 

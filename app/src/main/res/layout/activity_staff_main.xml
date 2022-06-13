@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".StaffMain">
+    tools:context=".StaffMain"
+    tools:layout_editor_absoluteX="-171dp"
+    tools:layout_editor_absoluteY="8dp">
 
 
     <EditText
@@ -42,11 +44,11 @@
         android:layout_width="214dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
-        android:text="Logout"
         android:backgroundTint="#7CA150"
+        android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -55,9 +57,9 @@
         android:layout_width="236dp"
         android:layout_height="43dp"
         android:layout_marginBottom="24dp"
+        android:backgroundTint="#7CA150"
         android:hint="User Tc"
         android:padding="10dp"
-        android:backgroundTint="#7CA150"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toTopOf="@+id/textViewUserAmount"
         app:layout_constraintEnd_toEndOf="parent"
@@ -182,11 +184,11 @@
         android:id="@+id/SendBill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:text="Send"
+        android:layout_marginTop="92dp"
         android:backgroundTint="#7CA150"
+        android:text="Send"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMonth"
         tools:ignore="MissingConstraints" />

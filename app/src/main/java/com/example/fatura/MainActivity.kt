@@ -1,4 +1,4 @@
-package com.example.pay_bill
+package com.example.fatura
 
 import android.os.Bundle
 import android.content.Intent
@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fatura.R
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -25,8 +24,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             })
 
             val user = SharedPrefManager.getInstance(this).user
-
             userName.text = user.name
+
             btnLogout.setOnClickListener(this)
 
 

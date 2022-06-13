@@ -1,15 +1,16 @@
-package com.example.pay_bill
+package com.example.fatura
 
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.fatura.R
 import com.example.fatura.databinding.ActivityBillDetailBinding
 import com.google.android.material.button.MaterialButton
 
@@ -53,7 +54,7 @@ class BillDetail: AppCompatActivity() {
 
     private fun deleteBill(id: String?) {
 
-       val url= "http://192.168.148.125:8080/fatura/deletebills.php/"
+       val url= "http://192.168.148.120:8080/fatura/deletebills.php/"
         val requestQueue= Volley.newRequestQueue(this)
         val stringRequest=object: StringRequest(Request.Method.POST,url,
             { response ->
